@@ -1,0 +1,193 @@
+doctype html
+html
+  head
+  page(contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1")
+  script(src="https://www.google.com/jsapi")
+  //script(type="text/javascript" src="https://www.gstatic.com/charts/loader.js")
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous")
+  link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
+  script(src="//code.jquery.com/jquery-1.10.2.js")
+  script(src="//code.jquery.com/ui/1.11.4/jquery-ui.js")
+  meta(name='description', content='OPS TEAM')
+  script.
+
+    var vd = !{JSON.stringify(vd)};
+    console.log(vd); 
+
+    var gd = !{JSON.stringify(gd)};
+    console.log(gd);
+
+    var dd = !{JSON.stringify(dd)};
+    console.log(dd);
+
+    var md = !{JSON.stringify(md)};
+    console.log(md);
+
+    var pd = !{JSON.stringify(pd)};
+    //console.log(pd); 
+
+     
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1',{'packages':['table', 'corechart']});
+    google.setOnLoadCallback(drawTableV);
+    google.setOnLoadCallback(drawTableG);
+    google.setOnLoadCallback(drawTableD);
+    google.setOnLoadCallback(drawTableM);
+    google.setOnLoadCallback(drawPie);
+    
+    
+      
+    function drawTableV() {
+      var chart = new google.visualization.DataTable(vd); 
+      
+      if (vd) {
+        var table = new google.visualization.Table(document.getElementById('chartV_div'));
+        table.draw(chart, {showRowNumber: false, width: '100%', page:'enable', pageSize: 10, sortColumn: 0, sortAscending: true});
+      }
+    }
+
+      
+
+    function drawTableG() {
+      var chart = new google.visualization.DataTable(gd);
+
+      var table = new google.visualization.Table(document.getElementById('chartG_div'));
+      table.draw(chart, {showRowNumber: false, width: '100%', page:'enable', pageSize: 10, sortColumn: 0, sortAscending: true});
+    }
+
+    function drawTableD() {
+      var chart = new google.visualization.DataTable(dd); 
+      
+      if (dd) {
+        var table = new google.visualization.Table(document.getElementById('chartD_div'));
+        table.draw(chart, {showRowNumber: false, width: '100%', page:'enable', pageSize: 10, sortColumn: 0, sortAscending: true});
+      }
+    }
+
+    function drawTableM() {
+      var chart = new google.visualization.DataTable(md); 
+      
+      if (md) {
+        var table = new google.visualization.Table(document.getElementById('chartM_div'));
+        table.draw(chart, {showRowNumber: false, width: '100%', page:'enable', pageSize: 10, sortColumn: 0, sortAscending: true});
+      }
+    }
+
+    function drawPie() {
+
+      var chart = new google.visualization.DataTable(pd);
+
+      var options = {
+                  title: 'Food Groups Distribution',
+                  is3D: true,
+      };
+      
+      if (pd) {
+        var table = new google.visualization.PieChart(document.getElementById('pie_div'));
+        table.draw(chart, options);
+      }
+
+    }
+    
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="navbar-collapse" aria-expanded="false" aria-controls="navbar")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#") Ticket Reporting
+    .main    
+        .col-md-12
+          p
+            .visible-xs
+              .button.btn.btn-primary.btn-xs(type="button" data-toggle="offcanvas")
+                i.glyphicon.glyphicon-chevron-left
+          h2 Dashboard
+          .row
+            .col-md-6
+              .well.well-lg
+                center
+                  h4 Veggies and Fruits
+                div#chartV_div 
+            .col-md-6
+              .well.well-lg
+                center
+                  h4 Grains
+                div#chartG_div
+          .row
+            .col-md-6 
+              .well.well-lg
+                center 
+                  h4 Milk and Alternatives
+                div#chartD_div
+            .col-md-6
+              .well.well-lg
+                center
+                  h4 Meat and Alternatives 
+                div#chartM_div
+          .row
+            .col-md-6
+                .well.well-lg 
+                  div#pie_div 
+          .row
+            .col-md-12
+                h2.sub-header Pictures of overweight cats
+          .row
+            .col-md-3
+              .well.well-sm 
+                div
+                  center
+                    img(src="images/hqdefault.jpg", hieght="200", width="300", alt="Cat Logo") 
+            .col-md-3
+              .well.well-sm
+                  div
+                    center
+                      img(src="images/potd_cat_2203719b.jpg", hieght="200", width="300", alt="Cat Logo") 
+            .col-md-3 
+              .well.well-sm  
+                div
+                  center
+                    img(src="images/v-fat-cat.jpg", hieght="200", width="300", alt="Cat Logo") 
+            .col-md-3
+              .well.well-sm  
+                div
+                  center
+                    img(src="images/ht_buddha_cat_mi_130815_16x9_608.jpg", hieght="200", width="300", alt="Cat Logo")  
+  script.
+    $(document).ready(function() {
+      $('[data-toggle=offcanvas]').click(function() {
+        $('.row-offcanvas').toggleClass('active');
+      });
+    });
+
+    function blink() {
+      var blinks = document.getElementsByTagName('blink');
+      for (var i = blinks.length - 1; i >= 0; i--) {
+        var s = blinks[i];
+        s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
+      }
+      window.setTimeout(blink, 1000);
+    }
+    if (document.addEventListener) document.addEventListener("DOMContentLoaded", blink, false);
+    else if (window.addEventListener) window.addEventListener("load", blink, false);
+    else if (window.attachEvent) window.attachEvent("onload", blink);
+    else window.onload = blink;
+    
+
+    
+
+    
+    
+   
+      
+
+      
+    
+      
+
